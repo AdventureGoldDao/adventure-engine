@@ -40,9 +40,14 @@ The generated project follows a monorepo structure:
 
 ```
 packages/
-  ├── contracts/         # Smart contracts and blockchain logic
-  ├── client/           # Frontend application
-  └── common/           # Shared utilities and types
+  ├── create-adventure-engine/ # create-adventure-engine 
+  └── common/                  # Shared utilities and types
+templates/ 
+  |-- react/                   # React template
+  |-- react-ecs/               # React ECS template
+  |-- phaser/                  # Phaser template
+  |-- threejs/                 # ThreeJS template
+  |-- vanilla/                 # Vanilla template
 ```
 
 ## Available Templates
