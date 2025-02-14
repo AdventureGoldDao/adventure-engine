@@ -221,7 +221,7 @@
 
   **Migrate existing RECS apps to new sync packages**
 
-  As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
+  As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/AdventureGoldDao/adventure-engine/issues/new) and let us know if we missed anything.
 
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
   2. In your `supportedChains.ts`, replace `foundry` chain with our new `mudFoundry` chain.
@@ -979,7 +979,7 @@
 
 ### Minor Changes
 
-- [#1482](https://github.com/latticexyz/mud/pull/1482) [`07dd6f32`](https://github.com/latticexyz/mud/commit/07dd6f32c9bb9f0e807bac3586c5cc9833f14ab9) Thanks [@alvrs](https://github.com/alvrs)! - Renamed all occurrences of `schema` where it is used as "value schema" to `valueSchema` to clearly distinguish it from "key schema".
+- [#1482](https://github.com/AdventureGoldDao/adventure-engine/pull/1482) [`07dd6f32`](https://github.com/AdventureGoldDao/adventure-engine/commit/07dd6f32c9bb9f0e807bac3586c5cc9833f14ab9) Thanks [@alvrs](https://github.com/alvrs)! - Renamed all occurrences of `schema` where it is used as "value schema" to `valueSchema` to clearly distinguish it from "key schema".
   The only breaking change for users is the change from `schema` to `valueSchema` in `mud.config.ts`.
 
   ```diff
@@ -997,7 +997,7 @@
   }
   ```
 
-- [#1483](https://github.com/latticexyz/mud/pull/1483) [`83583a50`](https://github.com/latticexyz/mud/commit/83583a5053de4e5e643572e3b1c0f49467e8e2ab) Thanks [@holic](https://github.com/holic)! - Templates now use `out` for their `forge build` artifacts, including ABIs. If you have a project created from a previous template, you can update your `packages/contracts/package.json` with:
+- [#1483](https://github.com/AdventureGoldDao/adventure-engine/pull/1483) [`83583a50`](https://github.com/AdventureGoldDao/adventure-engine/commit/83583a5053de4e5e643572e3b1c0f49467e8e2ab) Thanks [@holic](https://github.com/holic)! - Templates now use `out` for their `forge build` artifacts, including ABIs. If you have a project created from a previous template, you can update your `packages/contracts/package.json` with:
 
   ```diff
   - "build:abi": "rimraf abi && forge build --extra-output-files abi --out abi --skip test script MudTest.sol",
@@ -1013,13 +1013,13 @@
   + import IWorldAbi from "contracts/out/IWorld.sol/IWorld.abi.json";
   ```
 
-- [#1473](https://github.com/latticexyz/mud/pull/1473) [`92de5998`](https://github.com/latticexyz/mud/commit/92de59982fb9fc4e00e50c4a5232ed541f3ce71a) Thanks [@holic](https://github.com/holic)! - Bump Solidity version to 0.8.21
+- [#1473](https://github.com/AdventureGoldDao/adventure-engine/pull/1473) [`92de5998`](https://github.com/AdventureGoldDao/adventure-engine/commit/92de59982fb9fc4e00e50c4a5232ed541f3ce71a) Thanks [@holic](https://github.com/holic)! - Bump Solidity version to 0.8.21
 
-- [#1354](https://github.com/latticexyz/mud/pull/1354) [`331dbfdc`](https://github.com/latticexyz/mud/commit/331dbfdcbbda404de4b0fd4d439d636ae2033853) Thanks [@dk1a](https://github.com/dk1a)! - We've updated Store events to be "schemaless", meaning there is enough information in each event to only need to operate on the bytes of each record to make an update to that record without having to first decode the record by its schema. This enables new kinds of indexers and sync strategies.
+- [#1354](https://github.com/AdventureGoldDao/adventure-engine/pull/1354) [`331dbfdc`](https://github.com/AdventureGoldDao/adventure-engine/commit/331dbfdcbbda404de4b0fd4d439d636ae2033853) Thanks [@dk1a](https://github.com/dk1a)! - We've updated Store events to be "schemaless", meaning there is enough information in each event to only need to operate on the bytes of each record to make an update to that record without having to first decode the record by its schema. This enables new kinds of indexers and sync strategies.
 
   As such, we've replaced `blockStorageOperations# Change Log with `storedBlockLogs# Change Log, a stream of simplified Store event logs after they've been synced to the configured storage adapter. These logs may not reflect exactly the events that are on chain when e.g. hydrating from an indexer, but they will still allow the client to "catch up" to the on-chain state of your tables.
 
-- [#1558](https://github.com/latticexyz/mud/pull/1558) [`bfcb293d`](https://github.com/latticexyz/mud/commit/bfcb293d1931edde7f8a3e077f6f555a26fd1d2f) Thanks [@alvrs](https://github.com/alvrs)! - What used to be known as `ephemeral` table is now called `offchain` table.
+- [#1558](https://github.com/AdventureGoldDao/adventure-engine/pull/1558) [`bfcb293d`](https://github.com/AdventureGoldDao/adventure-engine/commit/bfcb293d1931edde7f8a3e077f6f555a26fd1d2f) Thanks [@alvrs](https://github.com/alvrs)! - What used to be known as `ephemeral` table is now called `offchain` table.
   The previous `ephemeral` tables only supported an `emitEphemeral` method, which emitted a `StoreSetEphemeralRecord` event.
 
   Now `offchain` tables support all regular table methods, except partial operations on dynamic fields (`push`, `pop`, `update`).
@@ -1032,7 +1032,7 @@
 
 ### Patch Changes
 
-- [#1318](https://github.com/latticexyz/mud/pull/1318) [`ac508bf1`](https://github.com/latticexyz/mud/commit/ac508bf189b098e66b59a725f58a2008537be130) Thanks [@holic](https://github.com/holic)! - Renamed the default filename of generated user types from `Types.sol` to `common.sol` and the default filename of the generated table index file from `Tables.sol` to `index.sol`.
+- [#1318](https://github.com/AdventureGoldDao/adventure-engine/pull/1318) [`ac508bf1`](https://github.com/AdventureGoldDao/adventure-engine/commit/ac508bf189b098e66b59a725f58a2008537be130) Thanks [@holic](https://github.com/holic)! - Renamed the default filename of generated user types from `Types.sol` to `common.sol` and the default filename of the generated table index file from `Tables.sol` to `index.sol`.
 
   Both can be overridden via the MUD config:
 
@@ -1056,7 +1056,7 @@
   + import { ExampleEnum } from "../src/codegen/common.sol";
   ```
 
-- [#1581](https://github.com/latticexyz/mud/pull/1581) [`cea754dd`](https://github.com/latticexyz/mud/commit/cea754dde0d8abf7392e93faa319b260956ae92b) Thanks [@alvrs](https://github.com/alvrs)! - - The external `setRecord` and `deleteRecord` methods of `IStore` no longer accept a `FieldLayout` as input, but load it from storage instead.
+- [#1581](https://github.com/AdventureGoldDao/adventure-engine/pull/1581) [`cea754dd`](https://github.com/AdventureGoldDao/adventure-engine/commit/cea754dde0d8abf7392e93faa319b260956ae92b) Thanks [@alvrs](https://github.com/alvrs)! - - The external `setRecord` and `deleteRecord` methods of `IStore` no longer accept a `FieldLayout` as input, but load it from storage instead.
   This is to prevent invalid `FieldLayout` values being passed, which could cause the onchain state to diverge from the indexer state.
   However, the internal `StoreCore` library still exposes a `setRecord` and `deleteRecord` method that allows a `FieldLayout` to be passed.
   This is because `StoreCore` can only be used internally, so the `FieldLayout` value can be trusted and we can save the gas for accessing storage.
@@ -1182,7 +1182,7 @@
 
 ### Minor Changes
 
-- [#1403](https://github.com/latticexyz/mud/pull/1403) [`55377ffe`](https://github.com/latticexyz/mud/commit/55377ffe6bfab13e0e834fadc07df4ef75122295) Thanks [@holic](https://github.com/holic)! - We now use `@latticexyz/abi-ts` to generate TS type declaration files (`.d.ts`) for each ABI JSON file. This replaces our usage TypeChain everywhere.
+- [#1403](https://github.com/AdventureGoldDao/adventure-engine/pull/1403) [`55377ffe`](https://github.com/AdventureGoldDao/adventure-engine/commit/55377ffe6bfab13e0e834fadc07df4ef75122295) Thanks [@holic](https://github.com/holic)! - We now use `@latticexyz/abi-ts` to generate TS type declaration files (`.d.ts`) for each ABI JSON file. This replaces our usage TypeChain everywhere.
 
   If you have a MUD project created from an older template, you can replace TypeChain with `abi-ts` by first updating your contracts' `package.json`:
 
@@ -1216,7 +1216,7 @@
 
 ### Patch Changes
 
-- [#1174](https://github.com/latticexyz/mud/pull/1174) [`952cd534`](https://github.com/latticexyz/mud/commit/952cd534447d08e6231ab147ed1cc24fb49bbb57) Thanks [@alvrs](https://github.com/alvrs)! - All `Store` methods now require the table's value schema to be passed in as an argument instead of loading it from storage.
+- [#1174](https://github.com/AdventureGoldDao/adventure-engine/pull/1174) [`952cd534`](https://github.com/AdventureGoldDao/adventure-engine/commit/952cd534447d08e6231ab147ed1cc24fb49bbb57) Thanks [@alvrs](https://github.com/alvrs)! - All `Store` methods now require the table's value schema to be passed in as an argument instead of loading it from storage.
   This decreases gas cost and removes circular dependencies of the Schema table (where it was not possible to write to the Schema table before the Schema table was registered).
 
   ```diff
@@ -1233,7 +1233,7 @@
   This change only requires changes in downstream projects if the `Store` methods were accessed directly. In most cases it is fully abstracted in the generated table libraries,
   so downstream projects only need to regenerate their table libraries after updating MUD.
 
-- [#1182](https://github.com/latticexyz/mud/pull/1182) [`afaf2f5f`](https://github.com/latticexyz/mud/commit/afaf2f5ffb36fe389a3aba8da2f6d8c84bdb26ab) Thanks [@alvrs](https://github.com/alvrs)! - - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
+- [#1182](https://github.com/AdventureGoldDao/adventure-engine/pull/1182) [`afaf2f5f`](https://github.com/AdventureGoldDao/adventure-engine/commit/afaf2f5ffb36fe389a3aba8da2f6d8c84bdb26ab) Thanks [@alvrs](https://github.com/alvrs)! - - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
 
   - `Store`'s `registerSchema` and `setMetadata` are combined into a single `registerTable` method. This means metadata (key names, field names) is immutable and indexers can create tables with this metadata when a new table is registered on-chain.
 
@@ -1259,14 +1259,14 @@
     ```
   - The `store-sync` and `cli` packages are updated to integrate the breaking protocol changes. Downstream projects only need to manually integrate these changes if they access low level `Store` or `World` functions. Otherwise, a fresh deploy with the latest MUD will get you these changes.
 
-- [#1311](https://github.com/latticexyz/mud/pull/1311) [`331f0d63`](https://github.com/latticexyz/mud/commit/331f0d636f6f327824307570a63fb301d9b897d1) Thanks [@alvrs](https://github.com/alvrs)! - Move `createFaucetService` from `@latticexyz/network` to `@latticexyz/services/faucet`.
+- [#1311](https://github.com/AdventureGoldDao/adventure-engine/pull/1311) [`331f0d63`](https://github.com/AdventureGoldDao/adventure-engine/commit/331f0d636f6f327824307570a63fb301d9b897d1) Thanks [@alvrs](https://github.com/alvrs)! - Move `createFaucetService` from `@latticexyz/network` to `@latticexyz/services/faucet`.
 
   ```diff
   - import { createFaucetService } from "@latticexyz/network";
   + import { createFaucetService } from "@latticexyz/services/faucet";
   ```
 
-- [#1311](https://github.com/latticexyz/mud/pull/1311) [`331f0d63`](https://github.com/latticexyz/mud/commit/331f0d636f6f327824307570a63fb301d9b897d1) Thanks [@alvrs](https://github.com/alvrs)! - Deprecate `@latticexyz/std-client` and remove v1 network dependencies.
+- [#1311](https://github.com/AdventureGoldDao/adventure-engine/pull/1311) [`331f0d63`](https://github.com/AdventureGoldDao/adventure-engine/commit/331f0d636f6f327824307570a63fb301d9b897d1) Thanks [@alvrs](https://github.com/alvrs)! - Deprecate `@latticexyz/std-client` and remove v1 network dependencies.
 
   - `getBurnerWallet` is replaced by `getBurnerPrivateKey` from `@latticexyz/common`. It now returns a `Hex` string instead of an `rxjs` `BehaviorSubject`.
 
@@ -1293,7 +1293,7 @@
 
 ### Major Changes
 
-- [#1278](https://github.com/latticexyz/mud/pull/1278) [`48c51b52`](https://github.com/latticexyz/mud/commit/48c51b52acab147a2ed97903c43bafa9b6769473) Thanks [@holic](https://github.com/holic)! - RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
+- [#1278](https://github.com/AdventureGoldDao/adventure-engine/pull/1278) [`48c51b52`](https://github.com/AdventureGoldDao/adventure-engine/commit/48c51b52acab147a2ed97903c43bafa9b6769473) Thanks [@holic](https://github.com/holic)! - RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
 
   To migrate existing projects after upgrading to this MUD version:
 
@@ -1311,7 +1311,7 @@
      + "dev": "pnpm mud dev-contracts",
      ```
 
-- [#1284](https://github.com/latticexyz/mud/pull/1284) [`939916bc`](https://github.com/latticexyz/mud/commit/939916bcd5c9f3caf0399e9ab7689e77e6bef7ad) Thanks [@holic](https://github.com/holic)! - MUD dev tools is updated to latest sync stack. You must now pass in all of its data requirements rather than relying on magic globals.
+- [#1284](https://github.com/AdventureGoldDao/adventure-engine/pull/1284) [`939916bc`](https://github.com/AdventureGoldDao/adventure-engine/commit/939916bcd5c9f3caf0399e9ab7689e77e6bef7ad) Thanks [@holic](https://github.com/holic)! - MUD dev tools is updated to latest sync stack. You must now pass in all of its data requirements rather than relying on magic globals.
 
   ```diff
   import { mount as mountDevTools } from "@latticexyz/dev-tools";
@@ -1342,13 +1342,13 @@
 
 ### Patch Changes
 
-- [#1308](https://github.com/latticexyz/mud/pull/1308) [`b8a6158d`](https://github.com/latticexyz/mud/commit/b8a6158d63738ebfc1e7eb221909436d050c7e39) Thanks [@holic](https://github.com/holic)! - bump viem to 1.6.0
+- [#1308](https://github.com/AdventureGoldDao/adventure-engine/pull/1308) [`b8a6158d`](https://github.com/AdventureGoldDao/adventure-engine/commit/b8a6158d63738ebfc1e7eb221909436d050c7e39) Thanks [@holic](https://github.com/holic)! - bump viem to 1.6.0
 
 ## 2.0.0-next.1
 
 ### Major Changes
 
-- [#1214](https://github.com/latticexyz/mud/pull/1214) [`60cfd089`](https://github.com/latticexyz/mud/commit/60cfd089fc7a17b98864b631d265f36718df35a9) Thanks [@holic](https://github.com/holic)! - Templates and examples now use MUD's new sync packages, all built on top of [viem](https://viem.sh/). This greatly speeds up and stabilizes our networking code and improves types throughout.
+- [#1214](https://github.com/AdventureGoldDao/adventure-engine/pull/1214) [`60cfd089`](https://github.com/AdventureGoldDao/adventure-engine/commit/60cfd089fc7a17b98864b631d265f36718df35a9) Thanks [@holic](https://github.com/holic)! - Templates and examples now use MUD's new sync packages, all built on top of [viem](https://viem.sh/). This greatly speeds up and stabilizes our networking code and improves types throughout.
 
   These new sync packages come with support for our `recs` package, including `encodeEntity` and `decodeEntity` utilities for composite keys.
 
@@ -1356,7 +1356,7 @@
 
   **Migrate existing RECS apps to new sync packages**
 
-  As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
+  As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/AdventureGoldDao/adventure-engine/issues/new) and let us know if we missed anything.
 
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
 
@@ -1539,77 +1539,77 @@
 
 ### Patch Changes
 
-- [#1168](https://github.com/latticexyz/mud/pull/1168) [`48909d15`](https://github.com/latticexyz/mud/commit/48909d151b3dfceab128c120bc6bb77de53c456b) Thanks [@dk1a](https://github.com/dk1a)! - bump forge-std and ds-test dependencies
+- [#1168](https://github.com/AdventureGoldDao/adventure-engine/pull/1168) [`48909d15`](https://github.com/AdventureGoldDao/adventure-engine/commit/48909d151b3dfceab128c120bc6bb77de53c456b) Thanks [@dk1a](https://github.com/dk1a)! - bump forge-std and ds-test dependencies
 
-- [#1165](https://github.com/latticexyz/mud/pull/1165) [`4e4a3415`](https://github.com/latticexyz/mud/commit/4e4a34150aeae988c8e61e25d55c227afb6c2d4b) Thanks [@holic](https://github.com/holic)! - bump to latest TS version (5.1.6)
+- [#1165](https://github.com/AdventureGoldDao/adventure-engine/pull/1165) [`4e4a3415`](https://github.com/AdventureGoldDao/adventure-engine/commit/4e4a34150aeae988c8e61e25d55c227afb6c2d4b) Thanks [@holic](https://github.com/holic)! - bump to latest TS version (5.1.6)
 
-- [#1179](https://github.com/latticexyz/mud/pull/1179) [`53522998`](https://github.com/latticexyz/mud/commit/535229984565539e6168042150b45fe0f9b48b0f) Thanks [@holic](https://github.com/holic)! - - bump to viem 1.3.0 and abitype 0.9.3
+- [#1179](https://github.com/AdventureGoldDao/adventure-engine/pull/1179) [`53522998`](https://github.com/AdventureGoldDao/adventure-engine/commit/535229984565539e6168042150b45fe0f9b48b0f) Thanks [@holic](https://github.com/holic)! - - bump to viem 1.3.0 and abitype 0.9.3
   - move `@wagmi/chains` imports to `viem/chains`
   - refine a few types
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.42.0](https://github.com/latticexyz/mud/compare/v1.41.0...v1.42.0) (2023-04-13)
+# [1.42.0](https://github.com/AdventureGoldDao/adventure-engine/compare/v1.41.0...v1.42.0) (2023-04-13)
 
 ### Features
 
-- align git dep versions ([#577](https://github.com/latticexyz/mud/issues/577)) ([2b5fb5e](https://github.com/latticexyz/mud/commit/2b5fb5e94ad3e7e1134608121fec6c7b6a64d539))
-- **create-mud:** use pnpm in templates, move to root so they can be installed/run ([#599](https://github.com/latticexyz/mud/issues/599)) ([010740d](https://github.com/latticexyz/mud/commit/010740d09d40d4ff6d95538d498a513fbb65ca45))
-- v2 event decoding ([#415](https://github.com/latticexyz/mud/issues/415)) ([374ed54](https://github.com/latticexyz/mud/commit/374ed542c3387a4ec2b36ab68ae534419aa58763))
+- align git dep versions ([#577](https://github.com/AdventureGoldDao/adventure-engine/issues/577)) ([2b5fb5e](https://github.com/AdventureGoldDao/adventure-engine/commit/2b5fb5e94ad3e7e1134608121fec6c7b6a64d539))
+- **create-mud:** use pnpm in templates, move to root so they can be installed/run ([#599](https://github.com/AdventureGoldDao/adventure-engine/issues/599)) ([010740d](https://github.com/AdventureGoldDao/adventure-engine/commit/010740d09d40d4ff6d95538d498a513fbb65ca45))
+- v2 event decoding ([#415](https://github.com/AdventureGoldDao/adventure-engine/issues/415)) ([374ed54](https://github.com/AdventureGoldDao/adventure-engine/commit/374ed542c3387a4ec2b36ab68ae534419aa58763))
 
-# [1.41.0](https://github.com/latticexyz/mud/compare/v1.40.0...v1.41.0) (2023-03-09)
+# [1.41.0](https://github.com/AdventureGoldDao/adventure-engine/compare/v1.40.0...v1.41.0) (2023-03-09)
 
 **Note:** Version bump only for package create-mud
 
-# [1.40.0](https://github.com/latticexyz/mud/compare/v1.39.0...v1.40.0) (2023-03-03)
+# [1.40.0](https://github.com/AdventureGoldDao/adventure-engine/compare/v1.39.0...v1.40.0) (2023-03-03)
 
 ### Features
 
-- v2 - add store, world and schema-type, cli table code generation ([#422](https://github.com/latticexyz/mud/issues/422)) ([cb731e0](https://github.com/latticexyz/mud/commit/cb731e0937e614bb316e6bc824813799559956c8))
+- v2 - add store, world and schema-type, cli table code generation ([#422](https://github.com/AdventureGoldDao/adventure-engine/issues/422)) ([cb731e0](https://github.com/AdventureGoldDao/adventure-engine/commit/cb731e0937e614bb316e6bc824813799559956c8))
 
 ### BREAKING CHANGES
 
 - This commit removes the deprecated `mud deploy` CLI command. Use `mud deploy-contracts` instead.
 
-# [1.39.0](https://github.com/latticexyz/mud/compare/v1.38.0...v1.39.0) (2023-02-22)
+# [1.39.0](https://github.com/AdventureGoldDao/adventure-engine/compare/v1.38.0...v1.39.0) (2023-02-22)
 
 ### Features
 
-- **create-mud:** default to latest mud version ([#432](https://github.com/latticexyz/mud/issues/432)) ([5a38ad6](https://github.com/latticexyz/mud/commit/5a38ad6b96058883518427fe87ad8f85fb266366))
+- **create-mud:** default to latest mud version ([#432](https://github.com/AdventureGoldDao/adventure-engine/issues/432)) ([5a38ad6](https://github.com/AdventureGoldDao/adventure-engine/commit/5a38ad6b96058883518427fe87ad8f85fb266366))
 
-# [1.38.0](https://github.com/latticexyz/mud/compare/v1.37.1...v1.38.0) (2023-02-22)
+# [1.38.0](https://github.com/AdventureGoldDao/adventure-engine/compare/v1.37.1...v1.38.0) (2023-02-22)
 
 ### Bug Fixes
 
-- **create-mud:** small linting/type fixes for templates ([#425](https://github.com/latticexyz/mud/issues/425)) ([1f2598c](https://github.com/latticexyz/mud/commit/1f2598cff40cd9f5059b553b9291ffd2c61bacdd))
+- **create-mud:** small linting/type fixes for templates ([#425](https://github.com/AdventureGoldDao/adventure-engine/issues/425)) ([1f2598c](https://github.com/AdventureGoldDao/adventure-engine/commit/1f2598cff40cd9f5059b553b9291ffd2c61bacdd))
 
-## [1.37.1](https://github.com/latticexyz/mud/compare/v1.37.0...v1.37.1) (2023-02-17)
+## [1.37.1](https://github.com/AdventureGoldDao/adventure-engine/compare/v1.37.0...v1.37.1) (2023-02-17)
 
 **Note:** Version bump only for package create-mud
 
-# [1.37.0](https://github.com/latticexyz/mud/compare/v1.36.1...v1.37.0) (2023-02-16)
+# [1.37.0](https://github.com/AdventureGoldDao/adventure-engine/compare/v1.36.1...v1.37.0) (2023-02-16)
 
 ### Features
 
-- **create-mud:** update mud versions ([#407](https://github.com/latticexyz/mud/issues/407)) ([96dfef9](https://github.com/latticexyz/mud/commit/96dfef992f25714963792137043639c0b67c903f))
+- **create-mud:** update mud versions ([#407](https://github.com/AdventureGoldDao/adventure-engine/issues/407)) ([96dfef9](https://github.com/AdventureGoldDao/adventure-engine/commit/96dfef992f25714963792137043639c0b67c903f))
 
 ### Reverts
 
-- Revert "chore(release): publish v1.37.0" ([c934f53](https://github.com/latticexyz/mud/commit/c934f5388c1e56f2fe6390fdda30f5b9b1ea1c20))
+- Revert "chore(release): publish v1.37.0" ([c934f53](https://github.com/AdventureGoldDao/adventure-engine/commit/c934f5388c1e56f2fe6390fdda30f5b9b1ea1c20))
 
-## [1.36.1](https://github.com/latticexyz/mud/compare/v1.36.0...v1.36.1) (2023-02-16)
+## [1.36.1](https://github.com/AdventureGoldDao/adventure-engine/compare/v1.36.0...v1.36.1) (2023-02-16)
 
 **Note:** Version bump only for package create-mud
 
-# [1.36.0](https://github.com/latticexyz/mud/compare/v1.35.0...v1.36.0) (2023-02-16)
+# [1.36.0](https://github.com/AdventureGoldDao/adventure-engine/compare/v1.35.0...v1.36.0) (2023-02-16)
 
 ### Bug Fixes
 
-- **create-mud:** attempt to fix create-mud build/install issues ([#406](https://github.com/latticexyz/mud/issues/406)) ([ea53acc](https://github.com/latticexyz/mud/commit/ea53accaa684c42982bb1cac4ac1fcefd07d1603))
+- **create-mud:** attempt to fix create-mud build/install issues ([#406](https://github.com/AdventureGoldDao/adventure-engine/issues/406)) ([ea53acc](https://github.com/AdventureGoldDao/adventure-engine/commit/ea53accaa684c42982bb1cac4ac1fcefd07d1603))
 
-# [1.35.0](https://github.com/latticexyz/mud/compare/v1.34.0...v1.35.0) (2023-02-15)
+# [1.35.0](https://github.com/AdventureGoldDao/adventure-engine/compare/v1.34.0...v1.35.0) (2023-02-15)
 
 ### Features
 
-- **create-mud:** add create-mud package ([#336](https://github.com/latticexyz/mud/issues/336)) ([e85c124](https://github.com/latticexyz/mud/commit/e85c1244bf63ccd0a287849dd33fa685d95ea081))
+- **create-mud:** add create-mud package ([#336](https://github.com/AdventureGoldDao/adventure-engine/issues/336)) ([e85c124](https://github.com/AdventureGoldDao/adventure-engine/commit/e85c1244bf63ccd0a287849dd33fa685d95ea081))

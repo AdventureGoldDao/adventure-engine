@@ -25,16 +25,16 @@ export function createSystemCalls(
    *
    *   Out of this parameter, we only care about two fields:
    *   - worldContract (which comes from getContract, see
-   *     https://github.com/latticexyz/mud/blob/main/templates/phaser/packages/client/src/mud/setupNetwork.ts#L61-L67).
+   *     https://github.com/AdventureGoldDao/adventure-engine/blob/main/templates/phaser/packages/client/src/mud/setupNetwork.ts#L61-L67).
    *
    *   - waitForTransaction (which comes from syncToRecs, see
-   *     https://github.com/latticexyz/mud/blob/main/templates/phaser/packages/client/src/mud/setupNetwork.ts#L75-L81).
+   *     https://github.com/AdventureGoldDao/adventure-engine/blob/main/templates/phaser/packages/client/src/mud/setupNetwork.ts#L75-L81).
    *
    * - From the second parameter, which is a ClientComponent,
    *   we only care about Counter. This parameter comes to use
    *   through createClientComponents.ts, but it originates in
    *   syncToRecs
-   *   (https://github.com/latticexyz/mud/blob/main/templates/phaser/packages/client/src/mud/setupNetwork.ts#L75-L81).
+   *   (https://github.com/AdventureGoldDao/adventure-engine/blob/main/templates/phaser/packages/client/src/mud/setupNetwork.ts#L75-L81).
    */
   { worldContract, waitForTransaction }: SetupNetworkResult,
   { Counter }: ClientComponents,
