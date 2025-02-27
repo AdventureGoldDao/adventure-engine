@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 // Get PRIVATE_KEY from environment variables
-const privateKey = process.env.PRIVATE_KEY?.replace(/^0x/, '');
+const publicAddress = process.env.PUBLIC_ADDRESS?.replace(/^0x/, '');
 
 // Execute deployment command and capture output
 exec('pnpm mud deploy', (error, stdout, stderr) => {
@@ -41,7 +41,7 @@ exec('pnpm mud deploy', (error, stdout, stderr) => {
                 method: "eth_manageContractTask",
                 params: [
                     worldAddress,
-                    privateKey,
+                    publicAddress,
                     30000,
                     true
                 ],
