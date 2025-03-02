@@ -38,7 +38,7 @@ exec('pnpm mud deploy', (error, stdout, stderr) => {
             // Construct request data
             const requestData = {
                 jsonrpc: "2.0",
-                method: "eth_manageContractTask",
+                method: "adv_manageContractTask",
                 params: [
                     worldAddress,
                     publicAddress,
