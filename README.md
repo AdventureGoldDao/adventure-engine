@@ -1,32 +1,37 @@
-# Create Adventure Engine Over MUD
+# Adventure Engine Over MUD
 
-This project provides a framework for creating adventure games using the MUD (Multi-User Dungeon) framework. It includes a heartbeat mechanism that integrates with [Adventure Layer Shards](https://github.com/AdventureGoldDao/adventure-layer-shards/) for real-time game state management.
+A framework for creating adventure games using the MUD (Multi-User Dungeon) framework with integrated blockchain capabilities. It includes a heartbeat mechanism that integrates with [Adventure Layer Shards](https://github.com/AdventureGoldDao/adventure-layer-shards/) for real-time game state management.
 
-> Created by [create-create-app](https://github.com/uetchy/create-create-app).
+## Core Features
 
-## Features
-
-- **Multiple Templates**: Supports various game development frameworks:
-  - React
-  - React ECS
-  - Phaser
-  - ThreeJS
+- **Multiple Game Development Templates**:
+  - React (Basic React template with MUD integration)
+  - React ECS (Entity Component System based)
+  - Phaser (2D game development)
+  - ThreeJS (3D game development)
   - Vanilla JavaScript
-- **Modular Design**: Easy to integrate and extend functionalities
-- **Heartbeat Mechanism**: Ensures real-time system reliability
-- **Integration with Adventure Layer Shards**: Enhances project capabilities and flexibility
-- **Smart Contract Integration**: Built-in support for blockchain interactions
-- **TypeScript Support**: Full TypeScript support for type safety
+
+- **Built-in Smart Contract Integration**
+  - Heartbeat mechanism for real-time state updates
+  - Player authentication system
+  - Game session management
+  - Blockchain state synchronization
+
+- **Technical Features**
+  - Modular architecture for easy extension
+  - Full TypeScript support
+  - Real-time state synchronization
+  - Integrated blockchain interactions
 
 ## Prerequisites
 
 - Node.js ^18
 - pnpm ^8 || ^9
-- Foundry (will be installed automatically)
+- Foundry (automatically installed during setup)
 
-## Installation
+## Quick Start
 
-To create a new adventure engine project, use one of the following commands:
+Create a new adventure engine project using either:
 
 ```bash
 npm create adventure-engine <project-name>
@@ -40,9 +45,13 @@ The generated project follows a monorepo structure:
 
 ```
 packages/
-  ├── contracts/         # Smart contracts and blockchain logic
-  ├── client/           # Frontend application
+  ├── create-adventure-engine/ # The CLI for creating new adventure engine projects
   └── common/           # Shared utilities and types
+templates/
+  ├── react/            # React template
+  ├── phaser/           # Phaser template
+  ├── threejs/          # ThreeJS template
+  └── vanilla/          # Vanilla JavaScript template
 ```
 
 ## Available Templates
