@@ -45,6 +45,13 @@ npm login
 npm publish --access public
 ```
 
+### 5. Verify Successful Publication
+
+After a successful publication, visit [NPM Package Page](https://www.npmjs.com/package/create-adventure-engine) to check if the latest version has been published successfully.
+
+
+
+
 ## Project Initialization
 
 Create a new Adventure Engine project using either command:
