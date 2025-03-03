@@ -1,44 +1,90 @@
-# Adventure Engine Over MUD
+# Adventure Engine Documentation
 
-## Prerequisites
+## System Requirements
 
-- Node.js ^18
-- pnpm ^8 || ^9
-- Foundry (automatically installed during setup)
+- Node.js 18.0.0 or higher
+- pnpm 8.0.0 or 9.0.0+
+- Foundry Framework (auto-installed during setup)
 
-## Quick Start
+## Quick Start Guide
 
-Create a new adventure engine project using either:
+## Build and Publishing Process
+
+### 1. Version Management
+
+Before publishing, ensure proper version configuration in `package.json`:
+- Verify the `version` field
+- Confirm compliance with Semantic Versioning standards
+
+### 2. Build Process
+
+Execute the following command to build your project:
 
 ```bash
+npm run build 
+```
+
+### 3. NPM Authentication
+
+For first-time publishers:
+1. Register an account at [NPM Official Website](https://www.npmjs.com/)
+2. Authenticate via terminal:
+
+```bash
+npm login
+```
+
+### 4. Publication Workflow
+
+#### Configuration
+- For scoped packages: Ensure `publishConfig.access` is set to `public` in `package.json`
+- For standard packages: Verify package name uniqueness in NPM registry
+
+#### Execute Publication
+```bash
+npm publish --access public
+```
+
+## Project Initialization
+
+Create a new Adventure Engine project using either command:
+
+```bash
+# Using npm
 npm create adventure-engine <project-name>
-# or
+
+# Using pnpm
 pnpm create adventure-engine <project-name>
 ```
 
+## Development Guide
 
-## Development
+### Essential Commands
 
 ```bash
 # Install dependencies
 pnpm install
 
-# Start development server
+# Launch development server
 pnpm dev
 
-# Build the project
+# Build project
 pnpm build
 
-# Run tests
+# Execute test suite
 pnpm test
 ```
 
 ## Smart Contract Integration
 
-The project includes a built-in Adventure Layer System with the following core functions:
+Adventure Layer System Core Components:
 
-- `adventureHeatbeat()`: Manages game state updates
-- `adventureAccountLogin()`: Handles player authentication
-- `adventureStartGame()`: Initializes game sessions
-- `adventureEndGame()`: Manages game completion
+### Core Interfaces
+
+| Interface Name | Description |
+|---------------|-------------|
+| `adventureHeatbeat()` | Game State Management System |
+| `adventureAccountLogin()` | Player Authentication Handler |
+| `adventureStartGame()` | Game Session Initializer |
+| `adventureEndGame()` | Game Completion Processor |
 
