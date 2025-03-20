@@ -212,10 +212,7 @@ library Tasks {
     bytes32[] memory _keyTuple = new bytes32[](1);
     _keyTuple[0] = id;
 
-    uint256 _byteLength = getLengthFunc(_tableId, _keyTuple, 0);
-    unchecked {
-        return _byteLength / 1;
-    }
+    return getLengthFunc(_tableId, _keyTuple, 0);
   }
 
   /**
