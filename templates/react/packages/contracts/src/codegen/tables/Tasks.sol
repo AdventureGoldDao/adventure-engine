@@ -198,26 +198,21 @@ library Tasks {
    * @notice Get the length of description.
    */
   function lengthDescription(bytes32 id) internal view returns (uint256) {
-    bytes32[] memory _keyTuple = new bytes32[](1);
-    _keyTuple[0] = id;
-
-    uint256 _byteLength = StoreSwitch.getDynamicFieldLength(_tableId, _keyTuple, 0);
-    unchecked {
-      return _byteLength / 1;
-    }
+    return _getLengthDescription(id, StoreSwitch.getDynamicFieldLength);
   }
 
   /**
    * @notice Get the length of description.
    */
   function _lengthDescription(bytes32 id) internal view returns (uint256) {
+    return _getLengthDescription(id, StoreCore.getDynamicFieldLength);
+  }
+
+  function _getLengthDescription(bytes32 id, function(bytes32, bytes32[] memory, uint256) view returns (uint256) getLengthFunc) internal view returns (uint256) {
     bytes32[] memory _keyTuple = new bytes32[](1);
     _keyTuple[0] = id;
 
-    uint256 _byteLength = StoreCore.getDynamicFieldLength(_tableId, _keyTuple, 0);
-    unchecked {
-      return _byteLength / 1;
-    }
+    return getLengthFunc(_tableId, _keyTuple, 0);
   }
 
   /**
